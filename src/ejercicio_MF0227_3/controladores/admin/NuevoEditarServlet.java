@@ -46,7 +46,11 @@ public class NuevoEditarServlet extends HttpServlet {
 		final String URL_IMG = "img/libros/";
 		final String FILE_IMG = "imagen_defecto.jpg";
 
-		Integer id = Integer.parseInt(request.getParameter("id"));
+		Integer id = null;
+		if (!"".equals(request.getParameter("id"))) {
+			id = Integer.parseInt(request.getParameter("id"));
+		}
+
 		String nombre = request.getParameter("nombre");
 		String autor = request.getParameter("autor");
 		BigDecimal precio = new BigDecimal(request.getParameter("precio"));
